@@ -1,353 +1,940 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-AR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Proyectos · Marcela Pagano</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet" />
-    <style>
-        *{box-sizing:border-box;margin:0}
-        :root{
-            --azul:#0A2342;--azul-2:#123B67;--azul-suave:#1D4E85;
-            --celeste-claro:#BFDDF2;--celeste-niebla:#EAF2FA;
-            --papel:#F5F7FA;--papel-2:#FAFBFD;--blanco:#FFF;
-            --tinta:#10213A;--tinta-2:#44536A;--tinta-3:#7C8AA0;
-            --linea:#DEE4EC;--linea-suave:#EBEFF4;
-            --oro:#C8A24B;--oro-suave:#F3E9D3;
-            --ley:#1F7A63;--ley-fondo:#E5F3EE;
-            --res:#B5541E;--res-fondo:#FBEBE0;
-            --dec:#38428C;--dec-fondo:#E9EAF6;
-            --f-display:'Fraunces',Georgia,serif;--f-texto:'Atkinson Hyperlegible Next',sans-serif;
-            --radio:10px;--radio-chico:6px;
-        }
-        @media(prefers-reduced-motion:reduce){*{transition-duration:0ms!important;animation-duration:0ms!important}}
-        html{scroll-behavior:smooth}
-        body{font-family:var(--f-texto);background:var(--papel);color:var(--tinta);line-height:1.6}
-        a{color:inherit}
-        :focus-visible{outline:2.5px solid var(--oro);outline-offset:2px;border-radius:3px}
-        .banda-patria{height:5px;background:linear-gradient(90deg,#5B9BD5,#BFDDF2 50%,#5B9BD5)}
-        .ancho{max-width:72rem;margin:0 auto;padding:0 clamp(1.1rem,4vw,2.2rem)}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Proyectos · Marcela Pagano</title>
+  <meta name="description" content="Proyectos legislativos presentados por la diputada nacional Marcela Pagano. Expedientes, temas, fechas y enlaces a la documentación original.">
+  <meta name="theme-color" content="#0A2342">
+  <meta name="color-scheme" content="light">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:title" content="Proyectos · Marcela Pagano">
+  <meta property="og:description" content="El trabajo legislativo de Marcela Pagano, documentado expediente por expediente.">
+  <meta property="og:image" content="./foto_pagano.jpg">
+  <meta name="twitter:card" content="summary_large_image">
 
-        /* ===== Cabecera ===== */
-        .cabecera{background:linear-gradient(160deg,var(--azul) 0%,var(--azul-2) 100%);color:#fff;padding:clamp(2.5rem,6vw,4rem) 0 clamp(3rem,7vw,4.5rem);position:relative;overflow:hidden}
-        .cabecera::before{content:"";position:absolute;inset:0;background:radial-gradient(48% 65% at 88% 8%,rgb(200 162 75 / .22),transparent 70%);pointer-events:none}
-        .marca{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--f-display);font-size:1.3rem;font-weight:600;color:#fff;text-decoration:none;margin-bottom:clamp(1.8rem,5vw,3rem)}
-        .marca svg{width:1.5rem;height:1.5rem;fill:var(--oro);flex-shrink:0}
-        .cabecera-cuerpo{display:grid;grid-template-columns:auto 1fr;gap:1.2rem 0;align-items:start;position:relative}
-        .numeral{display:flex;align-items:baseline;gap:1rem;grid-column:1 / -1;margin-bottom:.3rem;flex-wrap:wrap}
-        .numeral b{font-family:var(--f-display);font-weight:600;font-size:clamp(3.6rem,9vw,7rem);line-height:.85;color:#fff;letter-spacing:-.01em}
-        .numeral-etiqueta{font-family:var(--f-display);font-style:italic;font-weight:400;font-size:clamp(1.05rem,2vw,1.35rem);color:var(--celeste-claro);max-width:26ch;line-height:1.35}
-        .portada-lead{color:var(--celeste-claro);font-size:1.05rem;max-width:48ch;margin:.6rem 0 clamp(1.8rem,4vw,2.4rem);grid-column:1/-1;opacity:.92}
-        .stats-header{display:flex;gap:0;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.18);padding-top:1.4rem;grid-column:1/-1}
-        .stat-item{padding:0 1.6rem;border-left:1px solid rgba(255,255,255,.18)}
-        .stat-item:first-child{padding-left:0;border-left:none}
-        .stat-item strong{display:block;font-family:var(--f-display);font-weight:600;font-size:1.9rem;color:var(--oro);line-height:1.1}
-        .stat-item span{font-size:.85rem;color:var(--celeste-claro);opacity:.85}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 
-        /* ===== Filtros ===== */
-        .filtros-sticky{position:sticky;top:0;z-index:50;background:rgba(250,251,253,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--linea);padding:1.1rem 0}
-        .grupo-filtros-fila{display:flex;gap:.9rem;align-items:baseline;margin-bottom:.7rem}
-        .grupo-filtros-fila:last-child{margin-bottom:0}
-        .filtro-etiqueta{font-size:.78rem;color:var(--tinta-3);min-width:3rem;flex-shrink:0;padding-top:.5rem}
-        .grupo-filtros{display:flex;flex-wrap:wrap;gap:.5rem}
-        .pill{background:var(--blanco);border:1.5px solid var(--linea);padding:.4rem 1rem;border-radius:999px;font-weight:600;color:var(--tinta-2);cursor:pointer;transition:border-color .15s,color .15s,background .15s;font-family:var(--f-texto);font-size:.85rem;line-height:1.3}
-        .pill:hover{border-color:var(--azul-suave);color:var(--azul)}
-        .pill.active{background:var(--azul);color:#fff;border-color:var(--azul)}
-        .pill span{margin-left:.35rem;opacity:.7;font-variant-numeric:tabular-nums}
+  <style>
+    /* =====================================================================
+       DENUNCIÓMETRO · Proyectos
+       Sistema visual compartido con la web principal.
+       ===================================================================== */
+    *, *::before, *::after { box-sizing: border-box; }
+    * { margin: 0; }
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+    body {
+      min-height: 100dvh;
+      line-height: 1.5;
+      font-family: 'Atkinson Hyperlegible Next', 'Atkinson Hyperlegible', 'Segoe UI', system-ui, sans-serif;
+      color: #10213A;
+      background: #F4F6F9;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    img, svg { display: block; max-width: 100%; }
+    button, input, select { font: inherit; color: inherit; }
+    button { border: 0; background: none; cursor: pointer; }
+    a { color: inherit; }
+    h1, h2, h3, h4 { font-family: 'Fraunces', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif; font-weight: 500; line-height: 1.04; color: #0A2342; text-wrap: balance; }
+    p { text-wrap: pretty; }
+    :focus-visible { outline: 2px solid #74ACDF; outline-offset: 3px; border-radius: 3px; }
+    ::selection { background: #BFDDF2; color: #061529; }
 
-        /* ===== Gráficos ===== */
-        .graficos{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:2.2rem 0}
-        .grafico-caja{background:var(--blanco);border:1px solid var(--linea-suave);border-radius:var(--radio);padding:1.5rem}
-        .grafico-caja h3{font-family:var(--f-display);font-weight:600;color:var(--azul);margin-bottom:1.1rem;font-size:1.15rem}
-        .barras{display:grid;gap:.75rem}
-        .barra{display:grid;grid-template-columns:4.5rem 1fr 2.4rem;align-items:center;gap:.8rem}
-        .barra-label{font-weight:600;font-size:.9rem;color:var(--tinta-2)}
-        .barra-pista{height:8px;background:var(--papel);border-radius:999px;overflow:hidden}
-        .barra-relleno{height:100%;background:linear-gradient(90deg,var(--azul-suave),var(--azul));border-radius:inherit;transition:width .4s ease}
-        .barra-num{font-weight:700;font-size:.9rem;color:var(--azul);text-align:right;font-variant-numeric:tabular-nums}
+    :root {
+      --azul: #0A2342;
+      --azul-noche: #061529;
+      --celeste: #74ACDF;
+      --celeste-claro: #BFDDF2;
+      --celeste-niebla: #E8F1F9;
+      --papel: #F4F6F9;
+      --blanco: #FFFFFF;
+      --tinta: #10213A;
+      --tinta-2: #3E4F66;
+      --tinta-3: #6B7A8F;
+      --linea: #D8DFE8;
+      --oro: #C8A24B;
+      --oro-suave: #F3E9D3;
+      --verde: #1E6E5A;
+      --verde-suave: #E7F3EF;
+      --naranja: #A85A24;
+      --naranja-suave: #F9EDE4;
+      --violeta: #4750A0;
+      --violeta-suave: #ECECF8;
+      --f-display: 'Fraunces', Georgia, serif;
+      --f-texto: 'Atkinson Hyperlegible Next', 'Segoe UI', system-ui, sans-serif;
+      --ancho: 76rem;
+      --margen: clamp(1rem, 4vw, 2.75rem);
+      --radio: 8px;
+      --radio-grande: 14px;
+      --suave: cubic-bezier(.2,.8,.2,1);
+      --alto-cabecera: 4.75rem;
+    }
 
-        /* ===== Listado de expedientes ===== */
-        .libro{background:var(--blanco);border:1px solid var(--linea-suave);border-radius:var(--radio);margin:2.2rem 0 3rem;overflow:hidden}
-        .fila{border-bottom:1px solid var(--linea-suave)}.fila:last-child{border-bottom:none}
-        .fila-cabecera{display:grid;grid-template-columns:2.2rem 7.5rem 5.5rem 7.5rem 1fr auto;gap:1rem;align-items:center;padding:1.1rem 1.4rem;cursor:pointer;transition:background .15s}
-        .fila-cabecera:hover{background:var(--celeste-niebla)}
-        .fila-num{font-family:var(--f-display);font-size:1.05rem;color:var(--tinta-3);text-align:center}
-        .sello{display:inline-block;font-weight:700;font-size:.72rem;letter-spacing:.02em;padding:.28rem .55rem;border-radius:var(--radio-chico);text-align:center;white-space:nowrap}
-        .tipo-ley{color:var(--ley);background:var(--ley-fondo)}
-        .tipo-res{color:var(--res);background:var(--res-fondo)}
-        .tipo-dec{color:var(--dec);background:var(--dec-fondo)}
-        .fila-fecha{font-size:.82rem;color:var(--tinta-3);font-variant-numeric:tabular-nums}
-        .fila-tema{font-size:.78rem;font-weight:600;color:var(--azul);background:var(--celeste-niebla);padding:.28rem .65rem;border-radius:999px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-        .fila-resumen{font-size:.92rem;color:var(--tinta-2);line-height:1.5;word-break:break-word}
-        .fila-resumen b{color:var(--tinta);font-weight:700}
-        .fila-detalles{display:none;padding:0 1.4rem 1.3rem 4.7rem;background:var(--papel-2);border-top:1px dashed var(--linea)}
-        .fila.abierta .fila-detalles{display:block;padding-top:1rem}
-        .fila-detalles p{margin-bottom:.5rem;font-size:.92rem;color:var(--tinta-2);max-width:70ch}
-        .fila-detalles p strong{color:var(--tinta);font-weight:700}
-        .fila-acciones{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem}
-        .btn-linea{display:inline-flex;align-items:center;gap:.45rem;padding:.5rem 1rem;border-radius:999px;border:1.5px solid var(--azul);color:var(--azul);background:var(--blanco);font-weight:650;font-size:.83rem;text-decoration:none;transition:background .15s,color .15s}
-        .btn-linea svg{width:1rem;height:1rem;fill:none;stroke:currentColor;stroke-width:1.8;flex-shrink:0}
-        .btn-linea:hover{background:var(--azul);color:#fff}
-        .btn-detalle{background:transparent;border:1.5px solid var(--linea);color:var(--tinta-2);border-radius:999px;padding:.4rem 1rem;font-weight:600;cursor:pointer;font-size:.83rem;white-space:nowrap;transition:border-color .15s,color .15s}
-        .btn-detalle:hover{border-color:var(--azul-suave);color:var(--azul)}
-        .cargando{text-align:center;padding:3.5rem 1.5rem;font-size:1.05rem;color:var(--tinta-3)}
-        .cargando.error{color:var(--res)}
+    .oculto { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+    .ancho { width: min(100% - 2 * var(--margen), var(--ancho)); margin-inline: auto; }
 
-        @media(max-width:900px){.fila-cabecera{grid-template-columns:2rem 6.5rem 4.8rem 1fr auto}.fila-tema{display:none}.fila-detalles{padding-left:2.9rem}.graficos{grid-template-columns:1fr}}
-        @media(max-width:700px){.fila-cabecera{grid-template-columns:1.6rem 5.6rem 3.8rem 1fr auto;padding:.95rem 1rem;gap:.7rem}.fila-fecha{font-size:.72rem}.fila-resumen{font-size:.85rem}.sello{font-size:.66rem;padding:.22rem .4rem}.btn-detalle{font-size:.75rem;padding:.35rem .7rem}.fila-detalles{padding-left:1rem}.stat-item{padding:0 1rem}}
-        @media(max-width:500px){.fila-cabecera{grid-template-columns:1.3rem 4.6rem 1fr auto}.fila-fecha{display:none}.fila-resumen{font-size:.8rem}.sello{font-size:.62rem}.filtro-etiqueta{min-width:2.4rem}}
-    </style>
+    /* ---------- Cabecera compartida ---------- */
+    .cabecera {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: color-mix(in srgb, var(--papel) 88%, transparent);
+      backdrop-filter: blur(12px) saturate(1.15);
+      -webkit-backdrop-filter: blur(12px) saturate(1.15);
+      border-bottom: 1px solid var(--linea);
+    }
+    .banda-patria {
+      height: 6px;
+      background: linear-gradient(180deg, var(--celeste) 0 2px, var(--blanco) 2px 4px, var(--celeste) 4px);
+    }
+    .cabecera-fila {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      min-height: calc(var(--alto-cabecera) - 6px);
+    }
+    .marca {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      color: var(--azul);
+      text-decoration: none;
+      font-family: var(--f-display);
+      font-size: 1.5rem;
+      line-height: 1;
+      font-weight: 500;
+      letter-spacing: -.01em;
+      white-space: nowrap;
+    }
+    .marca .sol { width: 1.7rem; height: 1.7rem; color: var(--oro); flex: none; }
+    .marca .sol circle, .marca .sol path { fill: currentColor; }
+    .menu { display: flex; align-items: center; gap: 1.55rem; }
+    .menu a {
+      font-size: .95rem;
+      font-weight: 600;
+      color: var(--tinta-2);
+      text-decoration: none;
+      padding-block: .35rem;
+      border-bottom: 2px solid transparent;
+      transition: color .15s, border-color .15s;
+    }
+    .menu a:hover, .menu a[aria-current="page"] { color: var(--azul); border-bottom-color: var(--celeste); }
+    .btn-buscar {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      padding: .55rem .5rem .55rem .9rem;
+      border: 1px solid var(--linea);
+      border-radius: 999px;
+      background: var(--blanco);
+      color: var(--tinta-2);
+      font-size: .9rem;
+      font-weight: 600;
+    }
+    .btn-buscar:hover { border-color: var(--celeste); color: var(--azul); }
+    .btn-buscar svg { width: 1rem; height: 1rem; }
+    .btn-buscar kbd {
+      padding: .1rem .4rem;
+      border: 1px solid var(--linea);
+      border-radius: 4px;
+      background: var(--papel);
+      font-size: .7rem;
+      color: var(--tinta-3);
+    }
+    .btn-menu { display: none; width: 2.75rem; height: 2.75rem; place-items: center; border: 1px solid var(--linea); border-radius: 50%; background: var(--blanco); }
+    .btn-menu svg { width: 1.2rem; height: 1.2rem; }
+
+    /* ---------- Hero ---------- */
+    .portada { padding-top: 0; overflow: clip; }
+    .portada-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.04fr) minmax(25rem, .96fr);
+      align-items: stretch;
+      min-height: min(45rem, calc(100dvh - var(--alto-cabecera) - 6px));
+    }
+    .portada-texto {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(2.2rem, 5vw, 4.5rem) clamp(1rem, 4vw, 3.75rem) clamp(2.5rem, 5vw, 4.5rem) 0;
+    }
+    .portada-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      width: fit-content;
+      margin-bottom: 1rem;
+      font-size: .82rem;
+      font-weight: 750;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      color: var(--azul);
+    }
+    .portada-kicker::before { content: ''; width: 2.6rem; height: 2px; background: var(--celeste); border-radius: 2px; }
+    .portada-texto h1 {
+      max-width: 13ch;
+      font-size: clamp(2.8rem, 5.3vw, 5rem);
+      letter-spacing: -.024em;
+    }
+    .subtitulo {
+      max-width: 50ch;
+      margin-top: 1.25rem;
+      color: var(--tinta-2);
+      font-size: clamp(1rem, 1.25vw, 1.12rem);
+      line-height: 1.58;
+    }
+    .numeral {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: .7rem;
+      margin-top: 1.55rem;
+    }
+    .numeral b {
+      color: var(--azul);
+      font-family: var(--f-display);
+      font-size: clamp(5.5rem, 12vw, 10rem);
+      font-weight: 500;
+      letter-spacing: -.04em;
+      line-height: .76;
+      font-variant-numeric: lining-nums;
+    }
+    .numeral-etiqueta {
+      max-width: 20ch;
+      color: var(--tinta-2);
+      font-family: var(--f-display);
+      font-size: clamp(1.15rem, 2vw, 1.55rem);
+      font-style: italic;
+      line-height: 1.15;
+    }
+    .lead {
+      max-width: 58ch;
+      margin-top: 1.25rem;
+      color: var(--tinta-2);
+      font-size: 1.02rem;
+      line-height: 1.62;
+    }
+    .lead strong { color: var(--azul); }
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      margin-top: 1.7rem;
+      padding-top: 1.15rem;
+      border-top: 1px solid var(--linea);
+    }
+    .hero-stat { padding: 0 1.4rem; border-left: 1px solid var(--linea); }
+    .hero-stat:first-child { padding-left: 0; border-left: 0; }
+    .hero-stat strong { display: block; font-family: var(--f-display); font-size: 1.7rem; color: var(--azul); line-height: 1; }
+    .hero-stat span { display: block; margin-top: .3rem; color: var(--tinta-3); font-size: .82rem; }
+
+    /* La foto arranca inmediatamente debajo de la navegación */
+    .portada-retrato {
+      position: relative;
+      min-height: 100%;
+      display: flex;
+      align-items: stretch;
+      justify-content: flex-end;
+    }
+    .retrato-marco {
+      position: relative;
+      width: 100%;
+      min-height: 100%;
+      overflow: hidden;
+      background: var(--azul);
+      border-left: 3px solid var(--oro);
+      border-bottom: 3px solid var(--oro);
+      box-shadow: -14px 0 34px -30px rgb(6 21 41 / .65), 0 36px 64px -40px rgb(6 21 41 / .55);
+    }
+    .retrato-marco::before {
+      content: '';
+      position: absolute;
+      inset: 10px;
+      z-index: 2;
+      border: 1px solid rgb(255 255 255 / .45);
+      pointer-events: none;
+    }
+    .retrato-marco img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 8%;
+    }
+    .retrato-marco::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgb(6 21 41 / .95) 0%, rgb(6 21 41 / .36) 38%, transparent 65%), linear-gradient(to bottom, rgb(6 21 41 / .18) 0%, transparent 22%);
+      pointer-events: none;
+    }
+    .retrato-pie {
+      position: absolute;
+      z-index: 3;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: clamp(1.1rem, 2.5vw, 1.8rem) clamp(1.1rem, 3vw, 2rem) clamp(1.25rem, 2.5vw, 1.8rem);
+      color: #fff;
+    }
+    .retrato-pie .nombre-propio { display: block; font-family: var(--f-display); font-size: clamp(1.7rem, 2.7vw, 2.35rem); line-height: 1.05; }
+    .retrato-pie .cargo { display: block; margin-top: .3rem; color: var(--celeste-claro); font-size: .98rem; }
+    .foto-badge {
+      position: absolute;
+      z-index: 3;
+      top: 1rem;
+      right: 1rem;
+      padding: .45rem .7rem;
+      border-radius: 999px;
+      background: rgb(6 21 41 / .64);
+      color: #fff;
+      border: 1px solid rgb(255 255 255 / .35);
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .03em;
+      backdrop-filter: blur(8px);
+    }
+
+    /* ---------- Filtros ---------- */
+    .filtros-wrap { position: sticky; top: var(--alto-cabecera); z-index: 20; background: color-mix(in srgb, var(--papel) 95%, transparent); backdrop-filter: blur(10px); border-block: 1px solid var(--linea); }
+    .filtros { display: grid; gap: .7rem; padding-block: .9rem 1rem; }
+    .filtro-fila { display: grid; grid-template-columns: 4.2rem minmax(0, 1fr); gap: .8rem; align-items: start; }
+    .filtro-etiqueta { padding-top: .52rem; font-size: .8rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--tinta-3); }
+    .pills { display: flex; flex-wrap: wrap; gap: .45rem; }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .25rem;
+      max-width: 100%;
+      padding: .46rem .82rem;
+      border: 1px solid var(--linea);
+      border-radius: 999px;
+      background: var(--blanco);
+      color: var(--tinta-2);
+      font-size: .86rem;
+      font-weight: 650;
+      line-height: 1.25;
+      white-space: normal;
+      text-align: left;
+      overflow-wrap: anywhere;
+      transition: border-color .15s, background .15s, color .15s;
+    }
+    .pill:hover { border-color: var(--celeste); color: var(--azul); }
+    .pill.active { background: var(--azul); border-color: var(--azul); color: #fff; }
+    .pill span { margin-left: .15rem; opacity: .72; font-variant-numeric: tabular-nums; }
+
+    /* ---------- Contenido ---------- */
+    .contenido { padding-block: 1.8rem 4rem; }
+    .resumen-barra { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .6rem 1rem; margin-bottom: 1rem; }
+    .resumen-barra h2 { font-size: clamp(1.8rem, 3vw, 2.35rem); }
+    .resumen-barra p { color: var(--tinta-3); font-size: .9rem; }
+    .libro { background: var(--blanco); border: 1px solid var(--linea); border-radius: var(--radio-grande); overflow: hidden; box-shadow: 0 1px 2px rgb(10 35 66 / .05), 0 24px 50px -42px rgb(10 35 66 / .45); }
+    .fila { border-bottom: 1px solid var(--linea); scroll-margin-top: calc(var(--alto-cabecera) + 8rem); }
+    .fila:last-child { border-bottom: 0; }
+    .fila-cabecera {
+      display: grid;
+      grid-template-columns: 4.2rem minmax(7rem, auto) minmax(7rem, auto) minmax(12rem, .5fr) minmax(0, 1.8fr) auto;
+      gap: 1rem;
+      align-items: start;
+      padding: 1.25rem 1.35rem;
+      cursor: pointer;
+      transition: background .15s;
+    }
+    .fila-cabecera:hover { background: #FBFCFE; }
+    .fila-num { padding-top: .05rem; font-family: var(--f-display); font-size: 2rem; color: var(--tinta-3); line-height: 1; }
+    .sello {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      max-width: 100%;
+      min-height: 2rem;
+      padding: .35rem .55rem;
+      border: 1.5px solid currentColor;
+      border-radius: 4px;
+      font-size: .78rem;
+      font-weight: 750;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      line-height: 1.15;
+      white-space: normal;
+      overflow-wrap: anywhere;
+    }
+    .tipo-ley { color: var(--verde); background: var(--verde-suave); border-color: var(--verde); }
+    .tipo-res { color: var(--naranja); background: var(--naranja-suave); border-color: var(--naranja); }
+    .tipo-dec { color: var(--violeta); background: var(--violeta-suave); border-color: var(--violeta); }
+    .fila-fecha { padding-top: .25rem; color: var(--tinta-3); font-size: .82rem; font-variant-numeric: tabular-nums; line-height: 1.25; }
+
+    /* Tema SIEMPRE completo: nunca ellipsis, nunca ocultar */
+    .fila-tema {
+      display: block;
+      padding: .42rem .65rem;
+      border: 1px solid #D8E6F2;
+      border-radius: 6px;
+      background: var(--celeste-niebla);
+      color: var(--azul);
+      font-size: .78rem;
+      font-weight: 750;
+      line-height: 1.32;
+      white-space: normal;
+      overflow: visible;
+      text-overflow: clip;
+      overflow-wrap: anywhere;
+      word-break: normal;
+    }
+    .fila-resumen { min-width: 0; color: var(--tinta-2); font-size: .96rem; line-height: 1.48; }
+    .fila-resumen b { color: var(--azul); font-weight: 750; }
+    .btn-detalle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .42rem;
+      min-height: 2.35rem;
+      padding: .42rem .9rem;
+      border: 1px solid var(--linea);
+      border-radius: 999px;
+      background: var(--blanco);
+      color: var(--tinta-2);
+      font-size: .84rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .btn-detalle::after { content: ''; width: .42rem; height: .42rem; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; rotate: 45deg; translate: 0 -2px; transition: rotate .18s var(--suave); }
+    .fila.abierta .btn-detalle::after { rotate: 225deg; translate: 0 2px; }
+    .btn-detalle:hover { border-color: var(--celeste); color: var(--azul); }
+
+    .fila-detalles { display: none; padding: 0 1.35rem 1.45rem 6.55rem; background: #FBFCFE; border-top: 1px dashed var(--linea); }
+    .fila.abierta .fila-detalles { display: block; padding-top: 1rem; }
+    .detalle-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(15rem, .55fr); gap: 1rem 2rem; align-items: start; }
+    .detalle-campo { min-width: 0; }
+    .detalle-campo + .detalle-campo { margin-top: .65rem; }
+    .detalle-label { display: block; margin-bottom: .28rem; color: var(--tinta-3); font-size: .74rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
+    .detalle-valor { color: var(--tinta); font-size: .95rem; line-height: 1.55; overflow-wrap: anywhere; }
+    .detalle-valor.tema-completo {
+      padding: .75rem .9rem;
+      border-left: 3px solid var(--celeste);
+      border-radius: 0 6px 6px 0;
+      background: var(--celeste-niebla);
+      color: var(--azul);
+      font-weight: 700;
+    }
+    .fila-acciones { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 1rem; }
+    .btn-linea {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      min-height: 2.25rem;
+      padding: .42rem .85rem;
+      border: 1.5px solid var(--azul);
+      border-radius: 999px;
+      background: var(--blanco);
+      color: var(--azul);
+      font-size: .84rem;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background .15s, color .15s;
+    }
+    .btn-linea:hover { background: var(--azul); color: #fff; }
+    .btn-linea svg { width: .95rem; height: .95rem; flex: none; }
+
+    /* ---------- Estados ---------- */
+    .cargando { padding: 4rem 1rem; text-align: center; color: var(--tinta-2); }
+    .cargando::before { content: ''; display: block; width: 2.25rem; height: 2.25rem; margin: 0 auto 1rem; border: 3px solid var(--linea); border-top-color: var(--azul); border-radius: 50%; animation: girar .9s linear infinite; }
+    .error-carga { color: var(--naranja); }
+    @keyframes girar { to { rotate: 360deg; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; scroll-behavior: auto !important; } }
+
+    /* ---------- Pie ---------- */
+    .pie { margin-top: 0; padding-block: 3rem 1.4rem; background: var(--azul-noche); color: rgb(255 255 255 / .75); }
+    .pie-grid { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: start; }
+    .pie .marca { color: #fff; }
+    .pie-copy { max-width: 48ch; margin-top: .8rem; font-size: .9rem; line-height: 1.55; }
+    .pie-links { display: flex; flex-wrap: wrap; gap: 1.2rem; }
+    .pie-links a { color: #fff; font-size: .9rem; font-weight: 650; text-decoration: none; border-bottom: 1px solid rgb(255 255 255 / .3); padding-bottom: .12rem; }
+    .pie-legal { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgb(255 255 255 / .1); font-size: .75rem; color: rgb(255 255 255 / .5); }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 72rem) {
+      .portada-grid { grid-template-columns: 1fr 1fr; }
+      .fila-cabecera { grid-template-columns: 3.6rem minmax(5.8rem, auto) minmax(6.6rem, auto) minmax(10rem, .55fr) minmax(0, 1.45fr) auto; gap: .8rem; }
+      .fila-detalles { padding-left: 5.75rem; }
+    }
+    @media (max-width: 58rem) {
+      :root { --alto-cabecera: 4.4rem; }
+      .menu { display: none; }
+      .btn-menu { display: grid; }
+      .btn-buscar span, .btn-buscar kbd { display: none; }
+      .btn-buscar { padding: .65rem .75rem; }
+      .portada-grid { grid-template-columns: 1fr 1fr; min-height: auto; }
+      .portada-texto { padding-block: 2.25rem 2.6rem; }
+      .portada-texto h1 { font-size: clamp(2.5rem, 6vw, 4.2rem); }
+      .numeral b { font-size: clamp(5rem, 12vw, 7.5rem); }
+      .fila-cabecera { grid-template-columns: 3rem 6.2rem 1fr auto; }
+      .fila-fecha, .fila-tema { grid-column: 2 / -1; }
+      .fila-resumen { grid-column: 2 / -1; }
+      .fila-detalles { padding-left: 4.3rem; }
+    }
+    @media (max-width: 45rem) {
+      .portada-grid { grid-template-columns: 1fr; }
+      .portada-retrato { order: -1; min-height: min(69vw, 34rem); }
+      .retrato-marco { min-height: min(69vw, 34rem); border-left: 0; border-right: 0; border-bottom: 3px solid var(--oro); }
+      .portada-texto { padding: 2.2rem 0 2.8rem; }
+      .portada-texto h1 { max-width: 16ch; }
+      .numeral { margin-top: 1.2rem; }
+      .filtros-wrap { position: static; }
+      .filtro-fila { grid-template-columns: 1fr; gap: .25rem; }
+      .filtro-etiqueta { padding-top: 0; }
+      .detalle-grid { grid-template-columns: 1fr; }
+      .fila-detalles { padding-left: 1.1rem; padding-right: 1.1rem; }
+      .pie-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 34rem) {
+      .cabecera-fila { gap: .6rem; }
+      .marca { font-size: 1.28rem; }
+      .marca .sol { width: 1.45rem; height: 1.45rem; }
+      .hero-stats { gap: 0; }
+      .hero-stat { padding: 0 .9rem; }
+      .hero-stat:first-child { padding-left: 0; }
+      .fila-cabecera { grid-template-columns: 2.2rem minmax(5rem, auto) 1fr auto; gap: .65rem; padding: 1rem .9rem; }
+      .fila-num { font-size: 1.6rem; }
+      .fila-tema, .fila-fecha, .fila-resumen { grid-column: 2 / -1; }
+      .btn-detalle { padding-inline: .7rem; }
+      .sello { font-size: .7rem; }
+    }
+  </style>
 </head>
 <body>
-    <header class="cabecera">
-        <div class="ancho">
-            <a class="marca" href="#">
-                <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="5.4"/><path d="M15.21 8.84L16 .8L16.79 8.84ZM18.08 9.11L20.67 4.73L19.41 9.66ZM20.5 10.38L26.75 5.25L21.62 11.5ZM22.34 12.59L27.27 11.33L22.89 13.92ZM23.16 15.21L31.2 16L23.16 16.79ZM22.89 18.08L27.27 20.67L22.34 19.41ZM21.62 20.5L26.75 26.75L20.5 21.62ZM19.41 22.34L20.67 27.27L18.08 22.89ZM16.79 23.16L16 31.2L15.21 23.16ZM13.92 22.89L11.33 27.27L12.59 22.34ZM11.5 21.62L5.25 26.75L10.38 20.5ZM9.66 19.41L4.73 20.67L9.11 18.08ZM8.84 16.79L.8 16L8.84 15.21ZM9.11 13.92L4.73 11.33L9.66 12.59ZM10.38 11.5L5.25 5.25L11.5 10.38ZM12.59 9.66L11.33 4.73L13.92 9.11Z"/></svg>
-                <span>Proyectos</span>
-            </a>
-            <div class="cabecera-cuerpo">
-                <p class="numeral"><b id="total-proyectos">…</b><span class="numeral-etiqueta">proyectos presentados ante la Cámara de Diputados</span></p>
-                <p class="portada-lead">El trabajo legislativo de la diputada nacional Marcela Pagano, documentado y disponible para su consulta.</p>
-                <div class="stats-header">
-                    <div class="stat-item"><strong id="total-leyes">…</strong><span>Leyes</span></div>
-                    <div class="stat-item"><strong id="total-resoluciones">…</strong><span>Resoluciones</span></div>
-                    <div class="stat-item"><strong id="total-declaraciones">…</strong><span>Declaraciones</span></div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <div class="banda-patria"></div>
 
-    <div class="filtros-sticky">
-        <div class="ancho">
-            <div class="grupo-filtros-fila">
-                <span class="filtro-etiqueta">Tipo</span>
-                <div class="grupo-filtros" id="filtros-tipo">
-                    <button class="pill active" data-filtro="todos" onclick="filtrarTipo('todos', this)">Todos <span id="tipo-total">0</span></button>
-                    <button class="pill" data-filtro="Ley" onclick="filtrarTipo('Ley', this)">Leyes <span id="tipo-Ley">0</span></button>
-                    <button class="pill" data-filtro="Resolución" onclick="filtrarTipo('Resolución', this)">Resoluciones <span id="tipo-Resolución">0</span></button>
-                    <button class="pill" data-filtro="Declaración" onclick="filtrarTipo('Declaración', this)">Declaraciones <span id="tipo-Declaración">0</span></button>
-                </div>
-            </div>
-            <div class="grupo-filtros-fila">
-                <span class="filtro-etiqueta">Año</span>
-                <div class="grupo-filtros" id="filtros-anio">
-                    <button class="pill active" data-anio="todos" onclick="filtrarAnio('todos', this)">Todos</button>
-                </div>
-            </div>
-            <div class="grupo-filtros-fila">
-                <span class="filtro-etiqueta">Tema</span>
-                <div class="grupo-filtros" id="filtros-tema">
-                    <button class="pill active" data-tema="todos" onclick="filtrarTema('todos', this)">Todos</button>
-                </div>
-            </div>
-        </div>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="sol" viewBox="0 0 32 32">
+      <circle cx="16" cy="16" r="5.4"/>
+      <path d="M15.21 8.84L16 .8L16.79 8.84ZM18.08 9.11L20.67 4.73L19.41 9.66ZM20.5 10.38L26.75 5.25L21.62 11.5ZM22.34 12.59L27.27 11.33L22.89 13.92ZM23.16 15.21L31.2 16L23.16 16.79ZM22.89 18.08L27.27 20.67L22.34 19.41ZM21.62 20.5L26.75 26.75L20.5 21.62ZM19.41 22.34L20.67 27.27L18.08 22.89ZM16.79 23.16L16 31.2L15.21 23.16ZM13.92 22.89L11.33 27.27L12.59 22.34ZM11.5 21.62L5.25 26.75L10.38 20.5ZM9.66 19.41L4.73 20.67L9.11 18.08ZM8.84 16.79L.8 16L8.84 15.21ZM9.11 13.92L4.73 11.33L9.66 12.59ZM10.38 11.5L5.25 5.25L11.5 10.38ZM12.59 9.66L11.33 4.73L13.92 9.11Z"/>
+    </symbol>
+    <symbol id="lupa" viewBox="0 0 16 16"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M11 11l3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="menu" viewBox="0 0 16 16"><path d="M2 4h12M2 8h12M2 12h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="cerrar" viewBox="0 0 16 16"><path d="M3 3l10 10M13 3L3 13" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="doc" viewBox="0 0 16 16"><path d="M4 1.5h5l3.5 3.5v9.5h-8.5z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 1.5V5h3.5M6 8.5h4M6 11h4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="enlace" viewBox="0 0 16 16"><path d="M6.5 9.5a3 3 0 0 0 4.2 0l2-2a3 3 0 0 0-4.2-4.2l-1 1M9.5 6.5a3 3 0 0 0-4.2 0l-2 2a3 3 0 0 0 4.2 4.2l1-1" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  </svg>
+
+  <a class="oculto" href="#contenido">Ir al contenido</a>
+
+  <header class="cabecera" id="cabecera">
+    <div class="banda-patria" aria-hidden="true"></div>
+    <div class="ancho cabecera-fila">
+      <a class="marca" href="./" aria-label="Denunciómetro, inicio">
+        <svg class="sol" aria-hidden="true"><use href="#sol"></use></svg>
+        <span>Denunciómetro</span>
+      </a>
+
+      <nav class="menu" aria-label="Secciones">
+        <a href="https://gabriel1464.github.io/denunciometro/">Presentaciones</a>
+        <a href="./" aria-current="page">Proyectos</a>
+        <a href="https://gabriel1464.github.io/denunciometro/#denunciados">Denunciados</a>
+        <a href="https://gabriel1464.github.io/denunciometro/#contacto">Contacto</a>
+      </nav>
+
+      <div style="display:flex;align-items:center;gap:.6rem">
+        <button class="btn-buscar" type="button" id="btn-buscar" aria-label="Ir a buscar">
+          <svg aria-hidden="true"><use href="#lupa"></use></svg>
+          <span>Buscar</span><kbd aria-hidden="true">/</kbd>
+        </button>
+        <button class="btn-menu" id="btn-menu" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-movil">
+          <svg class="ico-menu" aria-hidden="true"><use href="#menu"></use></svg>
+          <svg class="ico-cerrar" aria-hidden="true" style="display:none"><use href="#cerrar"></use></svg>
+        </button>
+      </div>
     </div>
+    <nav id="menu-movil" aria-label="Menú móvil" style="display:none"></nav>
+  </header>
 
+  <main id="contenido">
+    <section class="portada" id="inicio" aria-labelledby="titulo-portada">
+      <div class="ancho portada-grid">
+        <div class="portada-texto">
+          <div class="portada-kicker">Trabajo legislativo</div>
+          <h1 id="titulo-portada">Proyectos que quedan registrados.</h1>
+          <p class="numeral"><b id="total-proyectos">…</b><span class="numeral-etiqueta">proyectos presentados ante la Cámara de Diputados</span></p>
+          <p class="oculto" id="total-accesible">Proyectos legislativos presentados ante la Cámara de Diputados.</p>
+          <p class="subtitulo">Un archivo público, ordenado y consultable del trabajo legislativo de <strong>Marcela Pagano</strong>.</p>
+          <p class="lead">Cada expediente reúne su número, fecha, tema, síntesis y enlaces a la documentación original para facilitar la consulta y la verificación.</p>
+
+          <div class="hero-stats" aria-label="Resumen por tipo">
+            <div class="hero-stat"><strong id="total-leyes">…</strong><span>Leyes</span></div>
+            <div class="hero-stat"><strong id="total-resoluciones">…</strong><span>Resoluciones</span></div>
+            <div class="hero-stat"><strong id="total-declaraciones">…</strong><span>Declaraciones</span></div>
+          </div>
+        </div>
+
+        <figure class="portada-retrato">
+          <div class="retrato-marco">
+            <img id="foto-pagano" src="https://gabriel1464.github.io/proyectos_pagano/foto_pagano.jpg" onerror="this.onerror=null;this.src='./foto_pagano.jpg';" alt="Marcela Pagano, diputada de la Nación" width="2048" height="1524" fetchpriority="high" decoding="async">
+            <span class="foto-badge">Marcela Pagano</span>
+            <figcaption class="retrato-pie">
+              <span class="nombre-propio">Marcela Pagano</span>
+              <span class="cargo">Diputada de la Nación</span>
+            </figcaption>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="filtros-wrap" aria-label="Filtros de expedientes">
+      <div class="ancho filtros">
+        <div class="filtro-fila">
+          <span class="filtro-etiqueta">Tipo</span>
+          <div class="pills" id="filtros-tipo">
+            <button class="pill active" data-filtro="todos" type="button" onclick="filtrarTipo('todos', this)">Todos <span id="tipo-total">0</span></button>
+            <button class="pill" data-filtro="Ley" type="button" onclick="filtrarTipo('Ley', this)">Leyes <span id="tipo-Ley">0</span></button>
+            <button class="pill" data-filtro="Resolución" type="button" onclick="filtrarTipo('Resolución', this)">Resoluciones <span id="tipo-Resolución">0</span></button>
+            <button class="pill" data-filtro="Declaración" type="button" onclick="filtrarTipo('Declaración', this)">Declaraciones <span id="tipo-Declaración">0</span></button>
+          </div>
+        </div>
+        <div class="filtro-fila">
+          <span class="filtro-etiqueta">Año</span>
+          <div class="pills" id="filtros-anio"></div>
+        </div>
+        <div class="filtro-fila">
+          <span class="filtro-etiqueta">Tema</span>
+          <div class="pills" id="filtros-tema"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ancho contenido" id="proyectos" aria-labelledby="titulo-listado">
+      <div class="resumen-barra">
+        <h2 id="titulo-listado">Expedientes</h2>
+        <p id="resultado-texto">Cargando proyectos…</p>
+      </div>
+      <div class="libro" id="libro">
+        <div class="cargando">Cargando expedientes…</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
     <div class="ancho">
-        <div class="graficos">
-            <div class="grafico-caja"><h3>Proyectos por año</h3><div class="barras" id="grafico-anio"></div></div>
-            <div class="grafico-caja"><h3>Distribución por tipo</h3><div class="barras" id="grafico-tipo"></div></div>
+      <div class="pie-grid">
+        <div>
+          <a class="marca" href="#inicio"><svg class="sol" aria-hidden="true"><use href="#sol"></use></svg><span>Denunciómetro</span></a>
+          <p class="pie-copy">Registro público del trabajo legislativo de Marcela Pagano. La información se presenta expediente por expediente para facilitar su consulta.</p>
         </div>
-        <div class="libro" id="libro"><div class="cargando">Cargando expedientes…</div></div>
+        <nav class="pie-links" aria-label="Enlaces del sitio">
+          <a href="https://gabriel1464.github.io/denunciometro/">Denunciómetro</a>
+          <a href="#proyectos">Proyectos</a>
+        </nav>
+      </div>
+      <div class="pie-legal">Fuente documental: expedientes.json y enlaces originales asociados a cada proyecto.</div>
     </div>
+  </footer>
 
-    <script>
-        // ===== CONFIGURACIÓN =====
-        const JSON_URL = 'https://raw.githubusercontent.com/gabriel1464/denunciometro/main/expedientes.json';
+  <script>
+    /* =====================================================================
+       DATOS · Carga robusta para GitHub Pages
+       Priorizamos la URL pública del repositorio y dejamos rutas alternativas.
+       ===================================================================== */
+    const JSON_URLS = [
+      'https://gabriel1464.github.io/proyectos_pagano/expedientes.json',
+      'https://raw.githubusercontent.com/gabriel1464/proyectos_pagano/main/expedientes.json',
+      './expedientes.json'
+    ];
 
-        let proyectos = [];
-        let filtros = { tipo: 'todos', anio: 'todos', tema: 'todos' };
-        let filtrosAnio = new Set();
-        let filtrosTema = new Set();
+    let proyectos = [];
+    let filtros = { tipo: 'todos', anio: 'todos', tema: 'todos' };
+    let filtrosAnio = new Set();
+    let filtrosTema = new Set();
 
-        // ===== CARGAR DATOS =====
-        async function cargarDatos() {
-            try {
-                const resp = await fetch(JSON_URL);
-                if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-                proyectos = await resp.json();
-                // Extraer años y temas
-                proyectos.forEach(p => {
-                    if (p.anio) filtrosAnio.add(p.anio);
-                    if (p.tema) filtrosTema.add(p.tema);
-                });
-                const anios = Array.from(filtrosAnio).sort((a,b) => b - a);
-                const temas = Array.from(filtrosTema).sort();
+    const escapeHTML = (value) => String(value ?? '')
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;')
+      .replaceAll('"', '&quot;')
+      .replaceAll("'", '&#039;');
 
-                // Llenar filtros de año
-                const contAnio = document.getElementById('filtros-anio');
-                contAnio.innerHTML = `<button class="pill active" data-anio="todos" onclick="filtrarAnio('todos', this)">Todos</button>`;
-                anios.forEach(anio => {
-                    const count = proyectos.filter(p => p.anio === anio).length;
-                    const btn = document.createElement('button');
-                    btn.className = 'pill';
-                    btn.dataset.anio = anio;
-                    btn.innerHTML = `${anio} <span>${count}</span>`;
-                    btn.onclick = function() { filtrarAnio(anio, this); };
-                    contAnio.appendChild(btn);
-                });
+    function tipoClase(tipo) {
+      if (tipo === 'Resolución') return 'tipo-res';
+      if (tipo === 'Declaración') return 'tipo-dec';
+      return 'tipo-ley';
+    }
 
-                // Llenar filtros de tema
-                const contTema = document.getElementById('filtros-tema');
-                contTema.innerHTML = `<button class="pill active" data-tema="todos" onclick="filtrarTema('todos', this)">Todos</button>`;
-                temas.forEach(tema => {
-                    const count = proyectos.filter(p => p.tema === tema).length;
-                    const btn = document.createElement('button');
-                    btn.className = 'pill';
-                    btn.dataset.tema = tema;
-                    btn.innerHTML = `${tema} <span>${count}</span>`;
-                    btn.onclick = function() { filtrarTema(tema, this); };
-                    contTema.appendChild(btn);
-                });
+    function contar(lista, campo, valor) {
+      return lista.filter(item => item[campo] === valor).length;
+    }
 
-                actualizarTodo();
-            } catch (e) {
-                document.getElementById('libro').innerHTML = `<div class="cargando error">No se pudieron cargar los expedientes (${e.message}). Recargá la página para reintentar.</div>`;
-                console.error(e);
-            }
+    async function obtenerJSON() {
+      let ultimoError = null;
+
+      for (const url of JSON_URLS) {
+        try {
+          const resp = await fetch(url, {
+            method: 'GET',
+            mode: 'cors',
+            cache: 'no-store',
+            credentials: 'omit',
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (!resp.ok) throw new Error(`HTTP ${resp.status} · ${url}`);
+          const texto = await resp.text();
+          if (!texto.trim()) throw new Error(`El archivo está vacío · ${url}`);
+
+          const datos = JSON.parse(texto.replace(/^\uFEFF/, ''));
+          if (!Array.isArray(datos)) throw new Error(`El archivo no contiene una lista válida · ${url}`);
+          return { datos, url };
+        } catch (error) {
+          ultimoError = error;
+          console.warn('No se pudo cargar', url, error);
         }
+      }
 
-        // ===== ACTUALIZAR ESTADÍSTICAS, GRÁFICOS Y LISTA =====
-        function actualizarTodo() {
-            const total = proyectos.length;
-            const leyes = proyectos.filter(p => p.tipo === 'Ley').length;
-            const res = proyectos.filter(p => p.tipo === 'Resolución').length;
-            const dec = proyectos.filter(p => p.tipo === 'Declaración').length;
+      throw ultimoError || new Error('No fue posible acceder a expedientes.json.');
+    }
 
-            document.getElementById('total-proyectos').textContent = total;
-            document.getElementById('total-leyes').textContent = leyes;
-            document.getElementById('total-resoluciones').textContent = res;
-            document.getElementById('total-declaraciones').textContent = dec;
-            document.getElementById('tipo-total').textContent = total;
-            document.getElementById('tipo-Ley').textContent = leyes;
-            document.getElementById('tipo-Resolución').textContent = res;
-            document.getElementById('tipo-Declaración').textContent = dec;
+    async function cargarDatos() {
+      try {
+        const { datos, url } = await obtenerJSON();
+        proyectos = datos;
+        console.info(`Expedientes cargados: ${proyectos.length} · ${url}`);
+        filtrosAnio = new Set(proyectos.map(p => p.anio).filter(Boolean));
+        filtrosTema = new Set(proyectos.map(p => p.tema).filter(Boolean));
 
-            // Gráfico años
-            const anios = Array.from(filtrosAnio).sort((a,b) => a - b);
-            const maxAnio = Math.max(...anios.map(a => proyectos.filter(p => p.anio === a).length), 1);
-            const contAnio = document.getElementById('grafico-anio');
-            contAnio.innerHTML = '';
-            anios.forEach(anio => {
-                const count = proyectos.filter(p => p.anio === anio).length;
-                const pct = (count / maxAnio * 100);
-                const barra = document.createElement('div');
-                barra.className = 'barra';
-                barra.innerHTML = `
-                    <span class="barra-label">${anio}</span>
-                    <div class="barra-pista"><div class="barra-relleno" style="width:${pct}%"></div></div>
-                    <span class="barra-num">${count}</span>
-                `;
-                contAnio.appendChild(barra);
-            });
+        construirFiltros();
+        actualizarEstadisticas();
+        renderLista();
+      } catch (error) {
+        console.error('Error definitivo cargando expedientes.json:', error);
+        document.getElementById('libro').innerHTML = `
+          <div class="cargando error-carga">
+            <strong>No se pudieron cargar los expedientes.</strong>
+            <p style="margin-top:.55rem">Verificá que <b>expedientes.json</b> esté publicado dentro del repositorio <b>proyectos_pagano</b>.</p>
+            <details style="margin:1rem auto 0;max-width:52rem;text-align:left">
+              <summary style="cursor:pointer;font-weight:700;color:var(--azul)">Detalle técnico</summary>
+              <pre style="margin-top:.7rem;padding:1rem;background:var(--blanco);border:1px solid var(--linea);border-radius:6px;white-space:pre-wrap;overflow-wrap:anywhere;font:.78rem/1.45 ui-monospace,SFMono-Regular,Consolas,monospace;color:var(--tinta-2)">${escapeHTML(error.message)}</pre>
+            </details>
+          </div>`;
+        document.getElementById('resultado-texto').textContent = 'Error al cargar los datos';
+      }
+    }
 
-            // Gráfico tipo
-            const tipos = ['Ley', 'Resolución', 'Declaración'];
-            const maxTipo = Math.max(...tipos.map(t => proyectos.filter(p => p.tipo === t).length), 1);
-            const contTipo = document.getElementById('grafico-tipo');
-            contTipo.innerHTML = '';
-            tipos.forEach(tipo => {
-                const count = proyectos.filter(p => p.tipo === tipo).length;
-                const pct = (count / maxTipo * 100);
-                const barra = document.createElement('div');
-                barra.className = 'barra';
-                barra.innerHTML = `
-                    <span class="barra-label">${tipo}</span>
-                    <div class="barra-pista"><div class="barra-relleno" style="width:${pct}%"></div></div>
-                    <span class="barra-num">${count}</span>
-                `;
-                contTipo.appendChild(barra);
-            });
+    function construirFiltros() {
+      const anios = [...filtrosAnio].sort((a, b) => Number(b) - Number(a));
+      const temas = [...filtrosTema].sort((a, b) => String(a).localeCompare(String(b), 'es'));
 
-            renderLista();
-        }
+      const contAnio = document.getElementById('filtros-anio');
+      contAnio.innerHTML = '<button class="pill active" type="button" data-anio="todos">Todos</button>';
+      contAnio.firstElementChild.onclick = function () { filtrarAnio('todos', this); };
+      anios.forEach(anio => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'pill';
+        btn.dataset.anio = anio;
+        btn.innerHTML = `${escapeHTML(anio)} <span>${contar(proyectos, 'anio', anio)}</span>`;
+        btn.onclick = function () { filtrarAnio(anio, this); };
+        contAnio.appendChild(btn);
+      });
 
-        function renderLista() {
-            const libro = document.getElementById('libro');
-            const filtrados = proyectos.filter(p => {
-                const okTipo = filtros.tipo === 'todos' || p.tipo === filtros.tipo;
-                const okAnio = filtros.anio === 'todos' || p.anio === filtros.anio;
-                const okTema = filtros.tema === 'todos' || p.tema === filtros.tema;
-                return okTipo && okAnio && okTema;
-            });
+      const contTema = document.getElementById('filtros-tema');
+      contTema.innerHTML = '<button class="pill active" type="button" data-tema="todos">Todos</button>';
+      contTema.firstElementChild.onclick = function () { filtrarTema('todos', this); };
+      temas.forEach(tema => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'pill';
+        btn.dataset.tema = tema;
+        /* Sin truncamiento: el nombre del tema completo queda disponible */
+        btn.innerHTML = `${escapeHTML(tema)} <span>${contar(proyectos, 'tema', tema)}</span>`;
+        btn.onclick = function () { filtrarTema(tema, this); };
+        contTema.appendChild(btn);
+      });
+    }
 
-            if (filtrados.length === 0) {
-                libro.innerHTML = `<div class="cargando">No se encontraron proyectos.</div>`;
-                return;
-            }
+    function actualizarEstadisticas() {
+      const total = proyectos.length;
+      const leyes = contar(proyectos, 'tipo', 'Ley');
+      const resoluciones = contar(proyectos, 'tipo', 'Resolución');
+      const declaraciones = contar(proyectos, 'tipo', 'Declaración');
 
-            libro.innerHTML = '';
-            filtrados.forEach((p, i) => {
-                const fila = document.createElement('div');
-                fila.className = 'fila';
-                let tipoClase = 'tipo-ley';
-                if (p.tipo === 'Resolución') tipoClase = 'tipo-res';
-                else if (p.tipo === 'Declaración') tipoClase = 'tipo-dec';
+      document.getElementById('total-proyectos').textContent = total;
+      document.getElementById('total-leyes').textContent = leyes;
+      document.getElementById('total-resoluciones').textContent = resoluciones;
+      document.getElementById('total-declaraciones').textContent = declaraciones;
+      document.getElementById('tipo-total').textContent = total;
+      document.getElementById('tipo-Ley').textContent = leyes;
+      document.getElementById('tipo-Resolución').textContent = resoluciones;
+      document.getElementById('tipo-Declaración').textContent = declaraciones;
+      document.getElementById('total-accesible').textContent = `${total} proyectos legislativos presentados ante la Cámara de Diputados.`;
+    }
 
-                fila.innerHTML = `
-                    <div class="fila-cabecera" onclick="toggleFila(this)">
-                        <span class="fila-num">${i + 1}</span>
-                        <span class="sello ${tipoClase}">${p.tipo}</span>
-                        <span class="fila-fecha">${p.fecha}</span>
-                        <span class="fila-tema">${p.tema}</span>
-                        <span class="fila-resumen"><b>${p.exp}</b> — ${p.resumen}</span>
-                        <button class="btn-detalle">Ver más</button>
-                    </div>
-                    <div class="fila-detalles">
-                        <p><strong>Expediente:</strong> ${p.exp}</p>
-                        <p><strong>Tema:</strong> ${p.tema}</p>
-                        <p><strong>Resumen completo:</strong> ${p.resumen}</p>
-                        <div class="fila-acciones">
-                            <a class="btn-linea" href="${p.link_pdf}" target="_blank" rel="noopener">
-                                <svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M14 3v5h5"/></svg>
-                                PDF original
-                            </a>
-                            <a class="btn-linea" href="${p.link_web}" target="_blank" rel="noopener">
-                                <svg viewBox="0 0 24 24"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M18 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6"/></svg>
-                                Ver en la Cámara
-                            </a>
-                        </div>
-                    </div>
-                `;
-                libro.appendChild(fila);
-            });
-        }
+    function proyectoFiltrado(p) {
+      const okTipo = filtros.tipo === 'todos' || p.tipo === filtros.tipo;
+      const okAnio = filtros.anio === 'todos' || String(p.anio) === String(filtros.anio);
+      const okTema = filtros.tema === 'todos' || p.tema === filtros.tema;
+      return okTipo && okAnio && okTema;
+    }
 
-        function toggleFila(cabecera) {
-            const fila = cabecera.parentElement;
-            fila.classList.toggle('abierta');
-            cabecera.querySelector('.btn-detalle').textContent = fila.classList.contains('abierta') ? 'Ocultar' : 'Ver más';
-        }
+    function renderLista() {
+      const libro = document.getElementById('libro');
+      const filtrados = proyectos.filter(proyectoFiltrado);
+      document.getElementById('resultado-texto').innerHTML = `<strong>${filtrados.length}</strong> ${filtrados.length === 1 ? 'expediente encontrado' : 'expedientes encontrados'}`;
 
-        function filtrarTipo(tipo, btn) {
-            document.querySelectorAll('#filtros-tipo .pill').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            filtros.tipo = tipo;
-            renderLista();
-        }
-        function filtrarAnio(anio, btn) {
-            document.querySelectorAll('#filtros-anio .pill').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            filtros.anio = anio;
-            renderLista();
-        }
-        function filtrarTema(tema, btn) {
-            document.querySelectorAll('#filtros-tema .pill').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            filtros.tema = tema;
-            renderLista();
-        }
+      if (!filtrados.length) {
+        libro.innerHTML = '<div class="cargando">No se encontraron proyectos con estos filtros.</div>';
+        return;
+      }
 
-        // Exponer globalmente
-        window.filtrarTipo = filtrarTipo;
-        window.filtrarAnio = filtrarAnio;
-        window.filtrarTema = filtrarTema;
-        window.toggleFila = toggleFila;
+      const fragment = document.createDocumentFragment();
+      filtrados.forEach((p, i) => {
+        const fila = document.createElement('article');
+        fila.className = 'fila';
+        fila.id = `proyecto-${i + 1}`;
 
-        cargarDatos();
-    </script>
+        const tipo = escapeHTML(p.tipo);
+        const tema = escapeHTML(p.tema || 'Sin tema informado');
+        const exp = escapeHTML(p.exp || 'Expediente sin número');
+        const fecha = escapeHTML(p.fecha || 'Fecha no informada');
+        const resumen = escapeHTML(p.resumen || 'Sin resumen disponible.');
+        const pdf = escapeHTML(p.link_pdf || '#');
+        const web = escapeHTML(p.link_web || '#');
+
+        fila.innerHTML = `
+          <div class="fila-cabecera" role="button" tabindex="0" aria-expanded="false">
+            <span class="fila-num" aria-hidden="true">${i + 1}</span>
+            <span class="sello ${tipoClase(p.tipo)}">${tipo}</span>
+            <span class="fila-fecha">${fecha}</span>
+            <span class="fila-tema" title="${tema}">${tema}</span>
+            <span class="fila-resumen"><b>${exp}</b> — ${resumen}</span>
+            <button class="btn-detalle" type="button">Ver más</button>
+          </div>
+
+          <div class="fila-detalles" hidden>
+            <div class="detalle-grid">
+              <div>
+                <div class="detalle-campo">
+                  <span class="detalle-label">Expediente</span>
+                  <div class="detalle-valor">${exp}</div>
+                </div>
+                <div class="detalle-campo">
+                  <span class="detalle-label">Tipo</span>
+                  <div class="detalle-valor">${tipo}</div>
+                </div>
+                <div class="detalle-campo">
+                  <span class="detalle-label">Fecha</span>
+                  <div class="detalle-valor">${fecha}</div>
+                </div>
+              </div>
+              <div>
+                <div class="detalle-campo">
+                  <span class="detalle-label">Tema completo</span>
+                  <div class="detalle-valor tema-completo">${tema}</div>
+                </div>
+              </div>
+            </div>
+            <div class="detalle-campo" style="margin-top:1rem">
+              <span class="detalle-label">Resumen completo</span>
+              <div class="detalle-valor">${resumen}</div>
+            </div>
+            <div class="fila-acciones">
+              ${p.link_pdf ? `<a class="btn-linea" href="${pdf}" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#doc"></use></svg>PDF original</a>` : ''}
+              ${p.link_web ? `<a class="btn-linea" href="${web}" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#enlace"></use></svg>Ver en la Cámara</a>` : ''}
+            </div>
+          </div>
+        `;
+
+        const cabecera = fila.querySelector('.fila-cabecera');
+        const detalle = fila.querySelector('.fila-detalles');
+        const boton = fila.querySelector('.btn-detalle');
+
+        const abrir = () => {
+          const abierto = fila.classList.toggle('abierta');
+          cabecera.setAttribute('aria-expanded', String(abierto));
+          detalle.hidden = !abierto;
+          boton.firstChild.textContent = abierto ? 'Ocultar' : 'Ver más';
+        };
+
+        cabecera.addEventListener('click', (event) => {
+          if (event.target.closest('a')) return;
+          abrir();
+        });
+        cabecera.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            abrir();
+          }
+        });
+        boton.addEventListener('click', (event) => {
+          event.stopPropagation();
+          abrir();
+        });
+
+        fragment.appendChild(fila);
+      });
+
+      libro.replaceChildren(fragment);
+    }
+
+    function actualizarActivos(selector, btn) {
+      document.querySelectorAll(`${selector} .pill`).forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    function filtrarTipo(tipo, btn) {
+      filtros.tipo = tipo;
+      actualizarActivos('#filtros-tipo', btn);
+      renderLista();
+    }
+
+    function filtrarAnio(anio, btn) {
+      filtros.anio = anio;
+      actualizarActivos('#filtros-anio', btn);
+      renderLista();
+    }
+
+    function filtrarTema(tema, btn) {
+      filtros.tema = tema;
+      actualizarActivos('#filtros-tema', btn);
+      renderLista();
+    }
+
+    // Atajo visual del botón Buscar: abre la búsqueda de la portada del Denunciómetro.
+    document.getElementById('btn-buscar').addEventListener('click', () => {
+      window.location.href = 'https://gabriel1464.github.io/denunciometro/';
+    });
+
+    // Menú móvil sencillo y consistente.
+    const btnMenu = document.getElementById('btn-menu');
+    const menuMovil = document.getElementById('menu-movil');
+    btnMenu.addEventListener('click', () => {
+      const abierto = btnMenu.getAttribute('aria-expanded') === 'true';
+      btnMenu.setAttribute('aria-expanded', String(!abierto));
+      menuMovil.style.display = abierto ? 'none' : 'block';
+      menuMovil.innerHTML = abierto ? '' : `
+        <div style="padding:0 var(--margen) 1rem;background:var(--papel);border-bottom:1px solid var(--linea);box-shadow:0 18px 30px -24px rgb(10 35 66 / .4)">
+          <a style="display:block;padding:.9rem 0;border-bottom:1px solid var(--linea);font-weight:650;text-decoration:none;color:var(--azul)" href="https://gabriel1464.github.io/denunciometro/">Presentaciones</a>
+          <a style="display:block;padding:.9rem 0;border-bottom:1px solid var(--linea);font-weight:650;text-decoration:none;color:var(--azul)" href="./">Proyectos</a>
+          <a style="display:block;padding:.9rem 0;border-bottom:1px solid var(--linea);font-weight:650;text-decoration:none;color:var(--azul)" href="https://gabriel1464.github.io/denunciometro/#denunciados">Denunciados</a>
+          <a style="display:block;padding:.9rem 0;font-weight:650;text-decoration:none;color:var(--azul)" href="https://gabriel1464.github.io/denunciometro/#contacto">Contacto</a>
+        </div>`;
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === '/' && !['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName)) {
+        event.preventDefault();
+        window.location.href = 'https://gabriel1464.github.io/denunciometro/';
+      }
+    });
+
+    window.filtrarTipo = filtrarTipo;
+    window.filtrarAnio = filtrarAnio;
+    window.filtrarTema = filtrarTema;
+
+    cargarDatos();
+  </script>
 </body>
 </html>
