@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proyectos · Marcela Pagano</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet" />
+    <style>
+        *{box-sizing:border-box;margin:0}:root{--azul:#0A2342;--celeste-claro:#BFDDF2;--celeste-niebla:#E8F1F9;--papel:#F4F6F9;--blanco:#FFF;--tinta:#10213A;--tinta-2:#3E4F66;--tinta-3:#6B7A8F;--linea:#D8DFE8;--oro:#C8A24B;--f-display:'Fraunces',Georgia,serif;--f-texto:'Atkinson Hyperlegible Next',sans-serif;--radio:8px}
+        body{font-family:var(--f-texto);background:var(--papel);color:var(--tinta);line-height:1.6}
+        .banda-patria{height:6px;background:linear-gradient(180deg,#74ACDF 0 2px,#fff 2px 4px,#74ACDF 4px)}
+        .ancho{max-width:70rem;margin:0 auto;padding:0 clamp(1rem,4vw,2rem)}
+        .cabecera{background:var(--azul);color:#fff;padding:3rem 0 4rem;position:relative;overflow:hidden}
+        .cabecera::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 60% at 80% 20%,rgb(200 162 75 / .2),transparent);pointer-events:none}
+        .marca{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--f-display);font-size:1.5rem;color:#fff;text-decoration:none;margin-bottom:2rem}
+        .marca svg{width:1.7rem;height:1.7rem;fill:var(--oro)}
+        .numeral{display:flex;align-items:baseline;gap:.7rem;margin-bottom:1rem}
+        .numeral b{font-family:var(--f-display);font-size:clamp(4rem,10vw,8rem);line-height:.8;color:#fff}
+        .numeral-etiqueta{font-family:var(--f-display);font-style:italic;font-size:1.5rem;color:var(--celeste-claro);max-width:20ch}
+        .portada-lead{color:var(--celeste-claro);font-size:1.15rem;max-width:52ch;margin-bottom:2rem}
+        .stats-header{display:flex;gap:2rem;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.2);padding-top:1.5rem}
+        .stat-item strong{display:block;font-family:var(--f-display);font-size:2.2rem;color:var(--oro)}
+        .stat-item span{font-size:.9rem;color:var(--celeste-claro)}
+        .graficos{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:2rem 0}
+        .grafico-caja{background:var(--blanco);border-radius:var(--radio);padding:1.5rem;box-shadow:0 2px 6px rgb(10 35 66 / .06)}
+        .grafico-caja h3{font-family:var(--f-display);color:var(--azul);margin-bottom:1rem;font-size:1.3rem}
+        .barras{display:grid;gap:.8rem}
+        .barra{display:grid;grid-template-columns:4rem 1fr 3rem;align-items:center;gap:.8rem}
+        .barra-label{font-weight:600;color:var(--tinta-2)}
+        .barra-pista{height:10px;background:var(--papel);border:1px solid var(--linea);border-radius:999px;overflow:hidden}
+        .barra-relleno{height:100%;background:var(--azul);border-radius:inherit}
+        .barra-num{font-weight:700;color:var(--azul);text-align:right}
+        .filtros-sticky{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--linea);padding:1rem 0}
+        .grupo-filtros{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin-bottom:.5rem}
+        .pill{background:transparent;border:1.5px solid var(--linea);padding:.45rem 1.1rem;border-radius:999px;font-weight:650;color:var(--tinta-2);cursor:pointer;transition:all .2s;font-family:var(--f-texto);font-size:.9rem}
+        .pill:hover{border-color:var(--azul);color:var(--azul)}
+        .pill.active{background:var(--azul);color:#fff;border-color:var(--azul)}
+        .pill span{margin-left:4px;opacity:.7}
+        .libro{background:var(--blanco);border-radius:var(--radio);box-shadow:0 2px 6px rgb(10 35 66 / .06);margin-top:2rem;overflow:hidden}
+        .fila{border-bottom:1px solid var(--linea)}.fila:last-child{border-bottom:none}
+        .fila-cabecera{display:grid;grid-template-columns:3rem 8rem 6rem 8rem 1fr auto;gap:.8rem;align-items:center;padding:1.2rem 1.5rem;cursor:pointer;transition:background .15s}
+        .fila-cabecera:hover{background:var(--celeste-niebla)}
+        .fila-num{font-family:var(--f-display);font-size:1.2rem;color:var(--tinta-3);text-align:center}
+        .sello{display:inline-block;font-variant-caps:all-small-caps;letter-spacing:.07em;font-weight:700;font-size:.85rem;padding:.3rem .5rem .2rem;border:1.5px solid currentColor;border-radius:3px;text-align:center}
+        .tipo-ley{color:#00897B}.tipo-res{color:#F4511E}.tipo-dec{color:#3949AB}
+        .fila-fecha{font-size:.85rem;color:var(--tinta-3)}
+        .fila-tema{font-size:.85rem;font-weight:600;color:var(--azul);background:var(--celeste-niebla);padding:.2rem .6rem;border-radius:999px;text-align:center;white-space:nowrap}
+        .fila-resumen{font-size:.95rem;color:var(--tinta-2);line-height:1.5;word-break:break-word}
+        .fila-detalles{display:none;padding:0 1.5rem 1.2rem 1.5rem;background:#fafbfc}
+        .fila.abierta .fila-detalles{display:block}
+        .fila-detalles p{margin-bottom:.5rem}
+        .fila-acciones{display:flex;gap:.5rem;justify-content:flex-end}
+        .btn-linea{display:inline-flex;align-items:center;gap:.4rem;padding:.4rem .9rem;border-radius:999px;border:1.5px solid var(--azul);color:var(--azul);background:var(--blanco);font-weight:650;font-size:.85rem;text-decoration:none;transition:background .2s}
+        .btn-linea:hover{background:var(--azul);color:#fff}
+        .btn-detalle{background:transparent;border:1.5px solid var(--linea);color:var(--tinta-2);border-radius:999px;padding:.4rem .9rem;font-weight:600;cursor:pointer;font-size:.85rem;white-space:nowrap}
+        .cargando{text-align:center;padding:3rem;font-size:1.2rem;color:var(--tinta-3)}
+        @media(max-width:900px){.fila-cabecera{grid-template-columns:2.5rem 7rem 5rem 1fr auto}.fila-tema{display:none}}
+        @media(max-width:700px){.fila-cabecera{grid-template-columns:2rem 6rem 4rem 1fr auto;padding:1rem}.fila-fecha{font-size:.75rem}.fila-resumen{font-size:.85rem}.sello{font-size:.7rem;padding:.2rem .4rem}.btn-detalle{font-size:.75rem;padding:.3rem .6rem}}
+        @media(max-width:500px){.fila-cabecera{grid-template-columns:1.5rem 5rem 1fr auto}.fila-fecha{display:none}.fila-resumen{font-size:.8rem}.sello{font-size:.65rem}}
+    </style>
+</head>
+<body>
+    <header class="cabecera">
+        <div class="ancho">
+            <a class="marca" href="#">
+                <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="5.4"/><path d="M15.21 8.84L16 .8L16.79 8.84ZM18.08 9.11L20.67 4.73L19.41 9.66ZM20.5 10.38L26.75 5.25L21.62 11.5ZM22.34 12.59L27.27 11.33L22.89 13.92ZM23.16 15.21L31.2 16L23.16 16.79ZM22.89 18.08L27.27 20.67L22.34 19.41ZM21.62 20.5L26.75 26.75L20.5 21.62ZM19.41 22.34L20.67 27.27L18.08 22.89ZM16.79 23.16L16 31.2L15.21 23.16ZM13.92 22.89L11.33 27.27L12.59 22.34ZM11.5 21.62L5.25 26.75L10.38 20.5ZM9.66 19.41L4.73 20.67L9.11 18.08ZM8.84 16.79L.8 16L8.84 15.21ZM9.11 13.92L4.73 11.33L9.66 12.59ZM10.38 11.5L5.25 5.25L11.5 10.38ZM12.59 9.66L11.33 4.73L13.92 9.11Z"/></svg>
+                <span>Proyectos</span>
+            </a>
+            <p class="numeral"><b id="total-proyectos">…</b><span class="numeral-etiqueta">proyectos presentados ante la Cámara de Diputados</span></p>
+            <p class="portada-lead">El trabajo legislativo de la diputada nacional Marcela Pagano, documentado y disponible para su consulta.</p>
+            <div class="stats-header">
+                <div class="stat-item"><strong id="total-leyes">…</strong><span>Leyes</span></div>
+                <div class="stat-item"><strong id="total-resoluciones">…</strong><span>Resoluciones</span></div>
+                <div class="stat-item"><strong id="total-declaraciones">…</strong><span>Declaraciones</span></div>
+            </div>
+        </div>
+    </header>
+    <div class="banda-patria"></div>
+
+    <div class="filtros-sticky">
+        <div class="ancho">
+            <div class="grupo-filtros" id="filtros-tipo">
+                <button class="pill active" data-filtro="todos" onclick="filtrarTipo('todos', this)">Todos <span id="tipo-total">0</span></button>
+                <button class="pill" data-filtro="Ley" onclick="filtrarTipo('Ley', this)">Leyes <span id="tipo-Ley">0</span></button>
+                <button class="pill" data-filtro="Resolución" onclick="filtrarTipo('Resolución', this)">Resoluciones <span id="tipo-Resolución">0</span></button>
+                <button class="pill" data-filtro="Declaración" onclick="filtrarTipo('Declaración', this)">Declaraciones <span id="tipo-Declaración">0</span></button>
+            </div>
+            <div class="grupo-filtros" id="filtros-anio">
+                <button class="pill active" data-anio="todos" onclick="filtrarAnio('todos', this)">Todos los años</button>
+            </div>
+            <div class="grupo-filtros" id="filtros-tema">
+                <button class="pill active" data-tema="todos" onclick="filtrarTema('todos', this)">Todos los temas</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="ancho">
+        <div class="graficos">
+            <div class="grafico-caja"><h3>Proyectos por Año</h3><div class="barras" id="grafico-anio"></div></div>
+            <div class="grafico-caja"><h3>Distribución por Tipo</h3><div class="barras" id="grafico-tipo"></div></div>
+        </div>
+        <div class="libro" id="libro"><div class="cargando">Cargando expedientes…</div></div>
+    </div>
+
+    <script>
+        // ===== CONFIGURACIÓN =====
+        const JSON_URL = 'https://raw.githubusercontent.com/gabriel1464/denunciometro/main/expedientes.json';
+
+        let proyectos = [];
+        let filtros = { tipo: 'todos', anio: 'todos', tema: 'todos' };
+        let filtrosAnio = new Set();
+        let filtrosTema = new Set();
+
+        // ===== CARGAR DATOS =====
+        async function cargarDatos() {
+            try {
+                const resp = await fetch(JSON_URL);
+                if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+                proyectos = await resp.json();
+                // Extraer años y temas
+                proyectos.forEach(p => {
+                    if (p.anio) filtrosAnio.add(p.anio);
+                    if (p.tema) filtrosTema.add(p.tema);
+                });
+                const anios = Array.from(filtrosAnio).sort((a,b) => b - a);
+                const temas = Array.from(filtrosTema).sort();
+
+                // Llenar filtros de año
+                const contAnio = document.getElementById('filtros-anio');
+                contAnio.innerHTML = `<button class="pill active" data-anio="todos" onclick="filtrarAnio('todos', this)">Todos los años</button>`;
+                anios.forEach(anio => {
+                    const count = proyectos.filter(p => p.anio === anio).length;
+                    const btn = document.createElement('button');
+                    btn.className = 'pill';
+                    btn.dataset.anio = anio;
+                    btn.innerHTML = `${anio} <span>${count}</span>`;
+                    btn.onclick = function() { filtrarAnio(anio, this); };
+                    contAnio.appendChild(btn);
+                });
+
+                // Llenar filtros de tema
+                const contTema = document.getElementById('filtros-tema');
+                contTema.innerHTML = `<button class="pill active" data-tema="todos" onclick="filtrarTema('todos', this)">Todos los temas</button>`;
+                temas.forEach(tema => {
+                    const count = proyectos.filter(p => p.tema === tema).length;
+                    const btn = document.createElement('button');
+                    btn.className = 'pill';
+                    btn.dataset.tema = tema;
+                    btn.innerHTML = `${tema} <span>${count}</span>`;
+                    btn.onclick = function() { filtrarTema(tema, this); };
+                    contTema.appendChild(btn);
+                });
+
+                actualizarTodo();
+            } catch (e) {
+                document.getElementById('libro').innerHTML = `<div class="cargando" style="color:#A6192E;">❌ Error al cargar datos: ${e.message}</div>`;
+                console.error(e);
+            }
+        }
+
+        // ===== ACTUALIZAR ESTADÍSTICAS, GRÁFICOS Y LISTA =====
+        function actualizarTodo() {
+            const total = proyectos.length;
+            const leyes = proyectos.filter(p => p.tipo === 'Ley').length;
+            const res = proyectos.filter(p => p.tipo === 'Resolución').length;
+            const dec = proyectos.filter(p => p.tipo === 'Declaración').length;
+
+            document.getElementById('total-proyectos').textContent = total;
+            document.getElementById('total-leyes').textContent = leyes;
+            document.getElementById('total-resoluciones').textContent = res;
+            document.getElementById('total-declaraciones').textContent = dec;
+            document.getElementById('tipo-total').textContent = total;
+            document.getElementById('tipo-Ley').textContent = leyes;
+            document.getElementById('tipo-Resolución').textContent = res;
+            document.getElementById('tipo-Declaración').textContent = dec;
+
+            // Gráfico años
+            const anios = Array.from(filtrosAnio).sort((a,b) => a - b);
+            const maxAnio = Math.max(...anios.map(a => proyectos.filter(p => p.anio === a).length), 1);
+            const contAnio = document.getElementById('grafico-anio');
+            contAnio.innerHTML = '';
+            anios.forEach(anio => {
+                const count = proyectos.filter(p => p.anio === anio).length;
+                const pct = (count / maxAnio * 100);
+                const barra = document.createElement('div');
+                barra.className = 'barra';
+                barra.innerHTML = `
+                    <span class="barra-label">${anio}</span>
+                    <div class="barra-pista"><div class="barra-relleno" style="width:${pct}%"></div></div>
+                    <span class="barra-num">${count}</span>
+                `;
+                contAnio.appendChild(barra);
+            });
+
+            // Gráfico tipo
+            const tipos = ['Ley', 'Resolución', 'Declaración'];
+            const maxTipo = Math.max(...tipos.map(t => proyectos.filter(p => p.tipo === t).length), 1);
+            const contTipo = document.getElementById('grafico-tipo');
+            contTipo.innerHTML = '';
+            tipos.forEach(tipo => {
+                const count = proyectos.filter(p => p.tipo === tipo).length;
+                const pct = (count / maxTipo * 100);
+                const barra = document.createElement('div');
+                barra.className = 'barra';
+                barra.innerHTML = `
+                    <span class="barra-label">${tipo}</span>
+                    <div class="barra-pista"><div class="barra-relleno" style="width:${pct}%"></div></div>
+                    <span class="barra-num">${count}</span>
+                `;
+                contTipo.appendChild(barra);
+            });
+
+            renderLista();
+        }
+
+        function renderLista() {
+            const libro = document.getElementById('libro');
+            const filtrados = proyectos.filter(p => {
+                const okTipo = filtros.tipo === 'todos' || p.tipo === filtros.tipo;
+                const okAnio = filtros.anio === 'todos' || p.anio === filtros.anio;
+                const okTema = filtros.tema === 'todos' || p.tema === filtros.tema;
+                return okTipo && okAnio && okTema;
+            });
+
+            if (filtrados.length === 0) {
+                libro.innerHTML = `<div class="cargando">No se encontraron proyectos.</div>`;
+                return;
+            }
+
+            libro.innerHTML = '';
+            filtrados.forEach((p, i) => {
+                const fila = document.createElement('div');
+                fila.className = 'fila';
+                let tipoClase = 'tipo-ley';
+                if (p.tipo === 'Resolución') tipoClase = 'tipo-res';
+                else if (p.tipo === 'Declaración') tipoClase = 'tipo-dec';
+
+                fila.innerHTML = `
+                    <div class="fila-cabecera" onclick="toggleFila(this)">
+                        <span class="fila-num">${i + 1}</span>
+                        <span class="sello ${tipoClase}">${p.tipo}</span>
+                        <span class="fila-fecha">${p.fecha}</span>
+                        <span class="fila-tema">${p.tema}</span>
+                        <span class="fila-resumen">${p.exp} — ${p.resumen}</span>
+                        <button class="btn-detalle">Ver más</button>
+                    </div>
+                    <div class="fila-detalles">
+                        <p><strong>Expediente:</strong> ${p.exp}</p>
+                        <p><strong>Tema:</strong> ${p.tema}</p>
+                        <p><strong>Resumen completo:</strong> ${p.resumen}</p>
+                        <div class="fila-acciones" style="margin-top:1rem;">
+                            <a class="btn-linea" href="${p.link_pdf}" target="_blank">📄 PDF original</a>
+                            <a class="btn-linea" href="${p.link_web}" target="_blank">🌐 Ver en la Cámara</a>
+                        </div>
+                    </div>
+                `;
+                libro.appendChild(fila);
+            });
+        }
+
+        function toggleFila(cabecera) {
+            const fila = cabecera.parentElement;
+            fila.classList.toggle('abierta');
+            cabecera.querySelector('.btn-detalle').textContent = fila.classList.contains('abierta') ? 'Ocultar' : 'Ver más';
+        }
+
+        function filtrarTipo(tipo, btn) {
+            document.querySelectorAll('#filtros-tipo .pill').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            filtros.tipo = tipo;
+            renderLista();
+        }
+        function filtrarAnio(anio, btn) {
+            document.querySelectorAll('#filtros-anio .pill').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            filtros.anio = anio;
+            renderLista();
+        }
+        function filtrarTema(tema, btn) {
+            document.querySelectorAll('#filtros-tema .pill').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            filtros.tema = tema;
+            renderLista();
+        }
+
+        // Exponer globalmente
+        window.filtrarTipo = filtrarTipo;
+        window.filtrarAnio = filtrarAnio;
+        window.filtrarTema = filtrarTema;
+        window.toggleFila = toggleFila;
+
+        cargarDatos();
+    </script>
+</body>
+</html>
